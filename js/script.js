@@ -42,7 +42,6 @@ showItems = () => {
             // console.log(data);
             $('#cardContainer').find('.row').empty();
             for (var i = 0; i < data.length; i++) {
-                console.log(data[i].image_URL);
                 let itemCard = `
                     <div class="col-12 col-md-4">
                         <div class="card" data-id="${data[i]._id}">
@@ -313,9 +312,9 @@ $('#addItemForm').on('submit', () => {
     let itemName = $('#itemName');
     let itemDescription = $('#itemDescription');
     let itemPrice = $('#itemPrice');
-    let itemType = $('input[name=itemType]:checked').val();
+    let itemType = $("input:radio[name='itemType']:checked").val();
     console.log(itemType);
-    let itemCondition = $('input[name=itemCondition]:checked').val();
+    let itemCondition = $("input:radio[name='itemCondition']:checked").val();
     console.log(itemCondition);
     let itemImg = $('#itemImage');
 
@@ -395,13 +394,12 @@ $('#cardContainer').on('click', '.editBtn', function() {
         url:`${url}/getItem/${id}`,
         type: 'GET',
         success: function(item){
-            console.log(item);
             $('#itemNameEdit').val(item.item_name);
             $('#itemDescriptionEdit').val(item.item_description);
             $('#itemPriceEdit').val(item.price);
             $('#itemIDEdit').val(item._id);
-            $("input[name=itemTypeEdit]:checked").val(item.clothing_type);
-            $("input[name=itemConditionEdit]:checked").val(item.condition);
+            $("input:radio[name='itemTypeEdit']:checked").val(item.clothing_type);
+            $("input:radio[name='itemConditionEdit']:checked").val(item.condition);
             console.log(item.clothing_type);
         },
         error: function(err){
@@ -424,10 +422,10 @@ $('#editItemForm').submit(() => {
     let itemName = $('#itemNameEdit').val();
     let itemDescription = $('#itemDescriptionEdit').val();
     let itemPrice = $('#itemPriceEdit').val();
-    let itemType = $('input[name=itemTypeEdit]:checked').val();
-    let itemCondition = $('input[name=itemConditionEdit]:checked').val();
+    let itemType = $("input:radio[name='itemTypeEdit']:checked").val();
+    let itemCondition = $("input:radio[name='itemConditionEdit']:checked").val();
 
-    if ((itemName.length != 0) && (itemDescription.length != 0) && (itemPrice.length != 0) && (itemType.length != 0) && (itemCondition.length !=0)) {
+    if ((itemName.length != 0) && (itemDescription.length != 0) && (itemPrice.length != 0) ) {
         $.ajax({
             url:`${url}/editItem/${id}`,
             type: 'PATCH',
