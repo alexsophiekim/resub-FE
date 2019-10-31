@@ -312,9 +312,9 @@ $('#addItemForm').on('submit', () => {
     let itemName = $('#itemName');
     let itemDescription = $('#itemDescription');
     let itemPrice = $('#itemPrice');
-    let itemType = $("input:radio[name='itemType']:checked").val();
+    let itemType = $("input[name=itemType]:checked").val();
     console.log(itemType);
-    let itemCondition = $("input:radio[name='itemCondition']:checked").val();
+    let itemCondition = $("input[name=itemCondition]:checked").val();
     console.log(itemCondition);
     let itemImg = $('#itemImage');
 
@@ -398,9 +398,10 @@ $('#cardContainer').on('click', '.editBtn', function() {
             $('#itemDescriptionEdit').val(item.item_description);
             $('#itemPriceEdit').val(item.price);
             $('#itemIDEdit').val(item._id);
-            $("input:radio[name='itemTypeEdit']:checked").val(item.clothing_type);
-            $("input:radio[name='itemConditionEdit']:checked").val(item.condition);
-            console.log(item.clothing_type);
+            $('input[name=itemConditionEdit]').attr('checked', false);
+            // console.log(  $('input[name=itemConditionEdit][value="New"]')   );
+            $('input[name=itemConditionEdit][value="'+item.condition+'"]').attr('checked', 'checked');
+            $('input[name=itemTypeEdit][value="'+item.clothing_type+'"]').attr('checked', 'checked');
         },
         error: function(err){
             console.log(err);
@@ -422,8 +423,8 @@ $('#editItemForm').submit(() => {
     let itemName = $('#itemNameEdit').val();
     let itemDescription = $('#itemDescriptionEdit').val();
     let itemPrice = $('#itemPriceEdit').val();
-    let itemType = $("input:radio[name='itemTypeEdit']:checked").val();
-    let itemCondition = $("input:radio[name='itemConditionEdit']:checked").val();
+    let itemType = $("input[name=itemTypeEdit]:checked").val();
+    let itemCondition = $("input[name=itemConditionEdit]:checked").val();
 
     if ((itemName.length != 0) && (itemDescription.length != 0) && (itemPrice.length != 0) ) {
         $.ajax({
