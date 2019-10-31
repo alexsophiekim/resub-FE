@@ -399,9 +399,8 @@ $('#cardContainer').on('click', '.editBtn', function() {
             $('#itemPriceEdit').val(item.price);
             $('#itemIDEdit').val(item._id);
             $('input[name=itemConditionEdit]').attr('checked', false);
-            // console.log(  $('input[name=itemConditionEdit][value="New"]')   );
-            $('input[name=itemConditionEdit][value="'+item.condition+'"]').attr('checked', 'checked');
-            $('input[name=itemTypeEdit][value="'+item.clothing_type+'"]').attr('checked', 'checked');
+            $("input[name=itemTypeEdit][value='" + item.clothing_type + "']").attr('checked', false);
+           $("input[name=itemConditionEdit][value='" + item.condition + "']").attr('checked', false);
         },
         error: function(err){
             console.log(err);

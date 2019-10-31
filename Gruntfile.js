@@ -13,7 +13,8 @@ module.exports = function(grunt){
       csslint: {
           strict: {
             options: {
-              import: 2
+              import: 2,
+              quiet: true
             },
             src: ['css/style.css']
           },
@@ -36,8 +37,14 @@ module.exports = function(grunt){
           }
         },
         watch: {
-            files: ['js/*.js', 'css/style.css', '!js/*.min.js', '!css/*.min.js'],
-            tasks: ['jshint', 'csslint']
+            css:{
+                files: ['css/style.css','!css/*.min.js'],
+                tasks: ['csslint']
+            },
+            js:{
+                files: ['js/*.js', '!js/*.min.js'],
+                tasks: ['jshint']
+            }
         }
     });
     // load plugins
