@@ -31,7 +31,7 @@ $(document).ready(() => {
         hideAddItemForm();
     }
 });
-
+console.log(serverURL);
 // bought === true issues
 showItems = () => {
     $.ajax({
@@ -43,7 +43,7 @@ showItems = () => {
             $('#cardContainer').find('.row').empty();
             for (var i = 0; i < data.length; i++) {
                 let itemCard = `
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-4 col-sm-6">
                         <div class="card" data-id="${data[i]._id}">
                             <div class="card-body">
                                 <div id="worktitle" class="card-title">
