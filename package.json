@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Summative 3.0 group project by John, Andy, Matt and Sophie.",
   "main": "index.html",
+  "sideEffects":"false",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
   },
   "repository": {
     "type": "git",
@@ -24,13 +25,13 @@
   "bugs": {
     "url": "https://github.com/alexsophiekim/thread-front-end/issues"
   },
-  "homepage": "https://github.com/alexsophiekim/thread-front-end#readme",
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.1",
     "popper.js": "^1.15.0"
   },
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "grunt": "^1.0.4",
     "grunt-contrib-csslint": "^2.0.0",
     "grunt-contrib-cssmin": "^3.0.0",
